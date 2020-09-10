@@ -1,0 +1,143 @@
+[
+    {
+        "id" : 1,
+        "nome" : "Ferrari",
+        "descricao" : "Um carro muito bonito.",
+        "preco" : 3000000.0,
+        "image" : "https://diariodonordeste.verdesmares.com.br/image/contentid/policy:1.1871992:1590320640/ferrari-2010.jpg",
+        "fones" : ["(22) 9 9999-9999", "(22) 9 9999-9898"]
+    },
+    {
+        "id" : 2,
+        "nome" : "Lamborghini",
+        "descricao" : "Mais um carro muito bonito.",
+        "preco" : 1000000.0,
+        "image" : "https://upload.wikimedia.org/wikipedia/commons/7/78/Lamborghini_Huracan_Evo_Genf_2019_1Y7A5452.jpg",
+        "fones" : ["(66) 9 7777-9898"]
+    },
+    {
+        "id" : 3,
+        "nome" : "Gol Bola",
+        "descricao" : "Um carro muito econômico.",
+        "preco" : 40000.0,
+        "image" : "https://cdn.carsp.com.br/upload/imgcache/dd7346342f12d3d3b95122f45f6411cb.jpg",
+        "fones" : ["(44) 9 8888-8888"]
+    },
+    {
+        "id" : 4,
+        "nome" : "Ferrari",
+        "descricao" : "Um carro muito bonito.",
+        "preco" : 3000000.0,
+        "image" : "https://diariodonordeste.verdesmares.com.br/image/contentid/policy:1.1871992:1590320640/ferrari-2010.jpg",
+        "fones" : ["(22) 9 9999-9999", "(22) 9 9999-9898"]
+    },
+    {
+        "id" : 5,
+        "nome" : "Lamborghini",
+        "descricao" : "Mais um carro muito bonito.",
+        "preco" : 1000000.0,
+        "image" : "https://upload.wikimedia.org/wikipedia/commons/7/78/Lamborghini_Huracan_Evo_Genf_2019_1Y7A5452.jpg",
+        "fones" : ["(66) 9 7777-9898"]
+    },
+    {
+        "id" : 6,
+        "nome" : "Gol Bola",
+        "descricao" : "Um carro muito econômico.",
+        "preco" : 40000.0,
+        "image" : "https://cdn.carsp.com.br/upload/imgcache/dd7346342f12d3d3b95122f45f6411cb.jpg",
+        "fones" : ["(44) 9 8888-8888"]
+    },{
+        "id" : 7,
+        "nome" : "Ferrari",
+        "descricao" : "Um carro muito bonito.",
+        "preco" : 3000000.0,
+        "image" : "https://diariodonordeste.verdesmares.com.br/image/contentid/policy:1.1871992:1590320640/ferrari-2010.jpg",
+        "fones" : ["(22) 9 9999-9999", "(22) 9 9999-9898"]
+    },
+    {
+        "id" : 8,
+        "nome" : "Lamborghini",
+        "descricao" : "Mais um carro muito bonito.",
+        "preco" : 1000000.0,
+        "image" : "https://upload.wikimedia.org/wikipedia/commons/7/78/Lamborghini_Huracan_Evo_Genf_2019_1Y7A5452.jpg",
+        "fones" : ["(66) 9 7777-9898"]
+    },
+    {
+        "id" : 9,
+        "nome" : "Gol Bola",
+        "descricao" : "Um carro muito econômico.",
+        "preco" : 40000.0,
+        "image" : "https://cdn.carsp.com.br/upload/imgcache/dd7346342f12d3d3b95122f45f6411cb.jpg",
+        "fones" : ["(44) 9 8888-8888"]
+    },{
+        "id" : 10,
+        "nome" : "Ferrari",
+        "descricao" : "Um carro muito bonito.",
+        "preco" : 3000000.0,
+        "image" : "https://diariodonordeste.verdesmares.com.br/image/contentid/policy:1.1871992:1590320640/ferrari-2010.jpg",
+        "fones" : ["(22) 9 9999-9999", "(22) 9 9999-9898"]
+    },
+    {
+        "id" : 11,
+        "nome" : "Lamborghini",
+        "descricao" : "Mais um carro muito bonito.",
+        "preco" : 1000000.0,
+        "image" : "https://upload.wikimedia.org/wikipedia/commons/7/78/Lamborghini_Huracan_Evo_Genf_2019_1Y7A5452.jpg",
+        "fones" : ["(66) 9 7777-9898"]
+    },
+    {
+        "id" : 12,
+        "nome" : "Gol Bola",
+        "descricao" : "Um carro muito econômico.",
+        "preco" : 40000.0,
+        "image" : "https://cdn.carsp.com.br/upload/imgcache/dd7346342f12d3d3b95122f45f6411cb.jpg",
+        "fones" : ["(44) 9 8888-8888"]
+    },{
+        "id" : 13,
+        "nome" : "Ferrari",
+        "descricao" : "Um carro muito bonito.",
+        "preco" : 3000000.0,
+        "image" : "https://diariodonordeste.verdesmares.com.br/image/contentid/policy:1.1871992:1590320640/ferrari-2010.jpg",
+        "fones" : ["(22) 9 9999-9999", "(22) 9 9999-9898"]
+    },
+    {
+        "id" : 14,
+        "nome" : "Lamborghini",
+        "descricao" : "Mais um carro muito bonito.",
+        "preco" : 1000000.0,
+        "image" : "https://upload.wikimedia.org/wikipedia/commons/7/78/Lamborghini_Huracan_Evo_Genf_2019_1Y7A5452.jpg",
+        "fones" : ["(66) 9 7777-9898"]
+    },
+    {
+        "id" : 15,
+        "nome" : "Gol Bola",
+        "descricao" : "Um carro muito econômico.",
+        "preco" : 40000.0,
+        "image" : "https://cdn.carsp.com.br/upload/imgcache/dd7346342f12d3d3b95122f45f6411cb.jpg",
+        "fones" : ["(44) 9 8888-8888"]
+    },{
+        "id" : 16,
+        "nome" : "Ferrari",
+        "descricao" : "Um carro muito bonito.",
+        "preco" : 3000000.0,
+        "image" : "https://diariodonordeste.verdesmares.com.br/image/contentid/policy:1.1871992:1590320640/ferrari-2010.jpg",
+        "fones" : ["(22) 9 9999-9999", "(22) 9 9999-9898"]
+    },
+    {
+        "id" : 17,
+        "nome" : "Lamborghini",
+        "descricao" : "Mais um carro muito bonito.",
+        "preco" : 1000000.0,
+        "image" : "https://upload.wikimedia.org/wikipedia/commons/7/78/Lamborghini_Huracan_Evo_Genf_2019_1Y7A5452.jpg",
+        "fones" : ["(66) 9 7777-9898"]
+    },
+    {
+        "id" : 18,
+        "nome" : "Gol Bola",
+        "descricao" : "Um carro muito econômico.",
+        "preco" : 40000.0,
+        "image" : "https://cdn.carsp.com.br/upload/imgcache/dd7346342f12d3d3b95122f45f6411cb.jpg",
+        "fones" : ["(44) 9 8888-8888"]
+    }
+    
+]
