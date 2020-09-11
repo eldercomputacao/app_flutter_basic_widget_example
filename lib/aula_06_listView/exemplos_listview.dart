@@ -46,8 +46,8 @@ class ExemplosListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: _buildListViewPessoa(),
-      //body: _buildListViewHorizontal(),
+      //body: _buildListViewPessoa(),
+      body: _buildListViewHorizontal(),
       //body: _buildListViewInfinite(),
       //body: _testeListaVazia(context),
       //body: _buildListViewSeparetedDinamico(),
@@ -78,12 +78,11 @@ class ExemplosListWidget extends StatelessWidget {
 
   Widget _buildListViewHorizontal() {
     return Container(
-      //height: 150,
-
+      height: 150,
       child: ListView(
-        //cacheExtent: 50,
+        cacheExtent: 50,
         padding: EdgeInsets.all(2),
-        scrollDirection: Axis.vertical,
+        scrollDirection: Axis.horizontal,
         children: [
           Container(
             color: Colors.red[200],
@@ -176,7 +175,7 @@ class ExemplosListWidget extends StatelessWidget {
               ),
             ),
           ),
-          TextField(),
+          //TextField(),
         ],
       ),
     );
