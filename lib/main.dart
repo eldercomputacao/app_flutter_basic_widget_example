@@ -4,9 +4,7 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(
     MaterialApp(
-      //home: ExemplosListWidget(),
       home: ExemplosListWidget(),
-      //home: ExemplosListWidget(),
     ),
   );
 }
