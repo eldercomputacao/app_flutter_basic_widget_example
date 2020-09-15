@@ -9,13 +9,16 @@ class CarroApi {
     String carrosJsonString =
         await rootBundle.loadString("resource/json/carros.json");
 
-    // print(carrosString);
+    // print(carrosJsonString);
 
     List carrosJson = json.decode(carrosJsonString);
 
-    // for (Map json in carrosJsonString) {
+    // print('tamanho: ${carrosJson.length}');
+    // for (Map json in carrosJson) {
     //   carros.add(Carro.fromJson(json));
     // }
+
+    // print('tam: ${carros.length}');
 
     // await Future.delayed(Duration(seconds: 5));
 
@@ -26,6 +29,8 @@ class CarroApi {
     // for (Carro c in carros) {
     //   print(c);
     // }
+
+    // carros.forEach((Carro c) => print(c));
 
     return carros;
   }

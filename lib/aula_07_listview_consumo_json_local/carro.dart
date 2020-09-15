@@ -6,8 +6,14 @@ class Carro {
   String image;
   List<String> fones;
 
-  Carro(
-      {this.id, this.nome, this.descricao, this.preco, this.image, this.fones});
+  Carro({
+    this.id,
+    this.nome,
+    this.descricao,
+    this.preco,
+    this.image,
+    this.fones,
+  });
 
   Carro.fromJson(Map<String, dynamic> json) {
     id = json['id'];
