@@ -1,13 +1,11 @@
-import 'package:app_flutter_basic_widget_example/aula_07_listview_consumo_json_local/lista_carro.dart';
+import 'package:app_flutter_basic_widget_example/aula_10_image/exemplo_image_widget.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(
     MaterialApp(
-      //home: ExemplosListWidget(),
-      //home: ExemplosListWidget(),
-      //home: ExemplosListWidget(),
-      home: ListaCarroWidget(),
+      //home: ListaCarroWidget(),
+      home: ExemploImageWidget(),
     ),
   );
 }
