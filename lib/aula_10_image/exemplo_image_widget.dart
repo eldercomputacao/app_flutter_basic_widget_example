@@ -5,9 +5,9 @@ class ExemploImageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Imagens')),
-      //body: _imageFundoTela(context),
+      body: _imageFundoTela(context),
       //body: _imageNetwork(context),
-      body: _imageAsset(context),
+      //body: _imageAsset(context),
     );
   }
 

@@ -1,11 +1,13 @@
 import 'package:app_flutter_basic_widget_example/aula_10_image/exemplo_image_widget.dart';
+import 'package:app_flutter_basic_widget_example/exercicios_praticos/exercicio_05_telefones/categoria_telefones_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(
     MaterialApp(
       //home: ListaCarroWidget(),
-      home: ExemploImageWidget(),
+      //home: ExemploImageWidget(),
+      home: CategoriaTelefonesWidget(),
     ),
   );
 }
