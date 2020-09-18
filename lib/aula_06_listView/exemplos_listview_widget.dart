@@ -80,8 +80,8 @@ class ExemplosListWidget extends StatelessWidget {
     return Container(
       height: 150,
       child: ListView(
-        cacheExtent: 50,
-        padding: EdgeInsets.all(2),
+        //cacheExtent: 0,
+        padding: EdgeInsets.all(4),
         scrollDirection: Axis.horizontal,
         children: [
           Container(
