@@ -1,3 +1,7 @@
+import 'package:app_flutter_basic_widget_example/aula_10_image/animal.dart';
+import 'package:app_flutter_basic_widget_example/aula_10_image/animal_api.dart';
+import 'package:app_flutter_basic_widget_example/aula_10_image/item_listview_gesturedetector_widget.dart';
+import 'package:app_flutter_basic_widget_example/aula_10_image/item_listview_inkwell_widget.dart';
 import 'package:flutter/material.dart';
 
 class ExemploImageWidget extends StatelessWidget {
@@ -5,9 +9,25 @@ class ExemploImageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Imagens')),
-      body: _imageFundoTela(context),
+      body: _listViewItemPersonalido(),
+      //body: _imageFundoTela(context),
       //body: _imageNetwork(context),
       //body: _imageAsset(context),
+    );
+  }
+
+  ListView _listViewItemPersonalido() {
+    List<Animal> animais = AnimalAPI.getAnimais();
+    return ListView.builder(
+      itemCount: animais.length,
+      itemBuilder: (context, i) {
+        return ItemListViewInkWellWidget(
+          animal: animais[i],
+          onTap: () => print('${animais[i].nome} - onTap'),
+          onDoubleTap: () => print('${animais[i].nome} - onDoubleTap'),
+          onLongPress: () => print('${animais[i].nome} - onLongPress'),
+        );
+      },
     );
   }
 
