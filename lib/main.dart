@@ -1,21 +1,15 @@
-import 'package:app_flutter_basic_widget_example/aula_06_listView/exemplos_listview_widget.dart';
-import 'package:app_flutter_basic_widget_example/aula_10_image/exemplo_imagepicker_camera_gallery.dart';
-import 'package:app_flutter_basic_widget_example/aula_10_image/exemplo_image_picker_galeria.dart';
-import 'package:app_flutter_basic_widget_example/aula_10_image/exemplo_image_widget.dart';
-import 'package:app_flutter_basic_widget_example/aula_11_gridview/exemplo_gridview_widget.dart';
-import 'package:app_flutter_basic_widget_example/aula_12_http_consumo_api/listview_posts_widget.dart';
+import 'package:app_flutter_basic_widget_example/aula_02_textfield_form_validacao/exemplo_textformfield_widget.dart';
+import 'package:app_flutter_basic_widget_example/aula_15_snackbar/exemplo_snackbar.dart';
+import 'package:app_flutter_basic_widget_example/exercicios_praticos/exercicio_06_crud/produtor_listview_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(
     MaterialApp(
-      //home: ExemplosListWidget(),
-      //home: ListaCarroWidget(),
-      //home: ExemploImageWidget(),
-      //home: ExemploImagePickerCameraGalleryWidget(),
-      //home: ExemploGridViewWidget(),
-      //home: CategoriaTelefonesWidget(),
-      home: ListViewPostWidget(),
+      //home: ExemploListViewProdutos(),
+      //home: ExemploTextFormFieldWidget(),
+      //home: ProdutoListViewPage(),
+      home: ExemloSnackbar(),
     ),
   );
 }

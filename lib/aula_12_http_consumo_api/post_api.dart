@@ -117,7 +117,7 @@ class PostApi {
       http.Response response = await http.put(
         url,
         body: convert.jsonEncode({
-          //'id': post.id,
+          //'id': 20,
           'userId': post.userId,
           'title': post.title,
           'body': post.body,
@@ -127,7 +127,7 @@ class PostApi {
 
       if (response.statusCode == 200) {
         Map<String, dynamic> map = convert.jsonDecode(response.body);
-        //print(map);
+        print(map);
         return Post.fromJson(map);
       } else {
         throw Exception(
