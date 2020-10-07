@@ -1,6 +1,4 @@
-import 'package:app_flutter_basic_widget_example/aula_02_textfield_form_validacao/exemplo_textformfield_widget.dart';
-import 'package:app_flutter_basic_widget_example/aula_15_snackbar/exemplo_snackbar.dart';
-import 'package:app_flutter_basic_widget_example/exercicios_praticos/exercicio_06_crud/produtor_listview_page.dart';
+import 'package:app_flutter_basic_widget_example/aula_16_alert_dialog/exemplo_alert_dialog.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,7 +7,8 @@ void main() {
       //home: ExemploListViewProdutos(),
       //home: ExemploTextFormFieldWidget(),
       //home: ProdutoListViewPage(),
-      home: ExemloSnackbar(),
+      //home: ExemloSnackbar(),
+      home: ExemploAlertDialogWidget(),
     ),
   );
 }

@@ -1,6 +1,6 @@
 String validarNome(String value) {
-  String patttern = r'(^[a-zA-Z ]*$)';
-  RegExp regExp = new RegExp(patttern);
+  String pattern = r'(^[a-zA-Z ]*$)';
+  RegExp regExp = new RegExp(pattern);
   if (!regExp.hasMatch(value)) {
     return "'Nome' invalido";
   }
@@ -9,8 +9,8 @@ String validarNome(String value) {
 }
 
 String validarCelular(String value) {
-  String patttern = r'(^[0-9]*$)';
-  RegExp regExp = new RegExp(patttern);
+  String pattern = r'(^[0-9]*$)';
+  RegExp regExp = new RegExp(pattern);
   if (!regExp.hasMatch(value)) {
     return "Celular invalido";
   }
