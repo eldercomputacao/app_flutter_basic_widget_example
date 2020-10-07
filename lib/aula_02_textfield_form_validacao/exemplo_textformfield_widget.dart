@@ -98,7 +98,7 @@ class _ExemploTextFormFieldWidgetState
                 }
 
                 if (double.parse(value) <= 0.0) {
-                  return "'Peso' deve ser maior que 17";
+                  return "'Peso' deve ser maior que 0";
                 }
 
                 return null;
