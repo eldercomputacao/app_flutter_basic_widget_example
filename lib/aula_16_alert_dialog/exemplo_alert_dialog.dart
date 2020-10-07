@@ -26,9 +26,7 @@ class _ExemploAlertDialogWidgetState extends State<ExemploAlertDialogWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Exemplo AlertDialog'),
-      ),
+      appBar: AppBar(title: Text('Exemplo AlertDialog')),
       body: Container(
         width: MediaQuery.of(context).size.width,
         child: Column(
@@ -86,10 +84,10 @@ class _ExemploAlertDialogWidgetState extends State<ExemploAlertDialogWidget> {
       builder: (context) {
         return AlertDialog(
           title: Text('Deletar'),
-          content: Text('Deseja deletar a ${_cidades[i]} ?'),
+          content: Text('Deseja deletar ${_cidades[i]} ?'),
           actions: [
             FlatButton(
-              child: Text('Sim'),
+              child: Text('Confirmar'),
               onPressed: () {
                 setState(() {
                   _cidades.removeAt(i);
