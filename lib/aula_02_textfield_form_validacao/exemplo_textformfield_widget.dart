@@ -1,5 +1,6 @@
 import 'package:app_flutter_basic_widget_example/aula_02_textfield_form_validacao/exemplo_funcao_validacao.dart';
 import 'package:flutter/material.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 import 'exemplo_funcao_validacao.dart' as va;
 
 class ExemploTextFormFieldWidget extends StatefulWidget {

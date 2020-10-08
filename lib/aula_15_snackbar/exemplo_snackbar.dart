@@ -25,7 +25,7 @@ class _ExemloSnackbarState extends State<ExemloSnackbar> {
           },
         ),
       ),
-      //body: MySnackBar(),
+      // body: MySnackBar(),
     );
   }
 
@@ -50,7 +50,7 @@ class _ExemloSnackbarState extends State<ExemloSnackbar> {
           textColor: Colors.white,
         ),
         duration: Duration(seconds: 5),
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.green[700],
       ),
     );
   }

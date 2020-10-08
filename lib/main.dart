@@ -1,5 +1,9 @@
+import 'package:app_flutter_basic_widget_example/aula_08_dropdownbutton/exemplo_dropdownButton_widget.dart';
+import 'package:app_flutter_basic_widget_example/aula_09_popupmenubutton/exemplo_popupMenuButton_widget.dart';
 import 'package:app_flutter_basic_widget_example/aula_16_alert_dialog/exemplo_alert_dialog.dart';
 import 'package:flutter/material.dart';
+
+import 'aula_15_snackbar/exemplo_snackbar.dart';
 
 void main() {
   runApp(
@@ -8,7 +12,9 @@ void main() {
       //home: ExemploTextFormFieldWidget(),
       //home: ProdutoListViewPage(),
       //home: ExemloSnackbar(),
-      home: ExemploAlertDialogWidget(),
+      //home: ExemploAlertDialogWidget(),
+      home: ExemploPopupMenuButton(),
+      //home: ExemploDropdownButtonWidget(),
     ),
   );
 }

@@ -44,7 +44,7 @@ class _ExemploDropdownButtonWidgetState
                 ),
               ),
               DropdownButton<int>(
-                //value: _numeroSelecionado,
+                value: _numeroSelecionado,
                 items: List<int>.generate(10, (i) => i)
                     .map(
                       (e) => DropdownMenuItem(
@@ -74,6 +74,7 @@ class _ExemploDropdownButtonWidgetState
 
   Container _buildDropdownDinamico() {
     return Container(
+      margin: EdgeInsets.all(10),
       padding: EdgeInsets.all(5),
       child: Column(
         children: [
@@ -87,6 +88,7 @@ class _ExemploDropdownButtonWidgetState
             value: _cidadeSelecionada,
             //iconSize: 30,
             //dropdownColor: Colors.red,
+            isExpanded: true,
             items: _cidades
                 .map(
                   (e) => DropdownMenuItem(
