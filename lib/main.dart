@@ -1,9 +1,6 @@
-import 'package:app_flutter_basic_widget_example/aula_08_dropdownbutton/exemplo_dropdownButton_widget.dart';
-import 'package:app_flutter_basic_widget_example/aula_09_popupmenubutton/exemplo_popupMenuButton_widget.dart';
-import 'package:app_flutter_basic_widget_example/aula_16_alert_dialog/exemplo_alert_dialog.dart';
+import 'package:app_flutter_basic_widget_example/aula_13_shared_preference/exemplo_shared_preferences.dart';
+import 'package:app_flutter_basic_widget_example/exercicios_praticos/exercicio_06_crud/produtor_listview_page.dart';
 import 'package:flutter/material.dart';
-
-import 'aula_15_snackbar/exemplo_snackbar.dart';
 
 void main() {
   runApp(
@@ -11,9 +8,8 @@ void main() {
       //home: ExemploListViewProdutos(),
       //home: ExemploTextFormFieldWidget(),
       //home: ProdutoListViewPage(),
-      //home: ExemloSnackbar(),
-      //home: ExemploAlertDialogWidget(),
-      home: ExemploPopupMenuButton(),
+
+      home: ExemploSharedPreferences(),
       //home: ExemploDropdownButtonWidget(),
     ),
   );

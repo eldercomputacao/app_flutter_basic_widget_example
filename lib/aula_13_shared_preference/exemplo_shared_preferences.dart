@@ -10,84 +10,122 @@ class ExemploSharedPreferences extends StatefulWidget {
 }
 
 class _ExemploSharedPreferencesState extends State<ExemploSharedPreferences> {
-  @override
-  void initState() {
-    super.initState();
-    _gravandoDados();
-    _gravandoListaPessoa();
-  }
-
   _gravandoDados() async {
     SharedPreferences instancia = await SharedPreferences.getInstance();
     instancia.setBool('key-bool', true);
     instancia.setInt('key-int', 10);
     instancia.setDouble('key-double', 3.4);
     instancia.setString('key-string', 'Maria Pereira');
+
+    List<String> _cidades = ['Patos', 'Cajazeiras', 'Jampa', 'Campina'];
+    instancia.setStringList('key-cidades', _cidades);
+
     print('Dados gravados com sucesso');
   }
 
-  _gravandoListaPessoa() async {
+  _lendoDados() async {
+    SharedPreferences instancia = await SharedPreferences.getInstance();
+    print('key-bool --> ${instancia.getBool('key-bool')}');
+    print('key-int --> ${instancia.getInt('key-int')}');
+    print('key-double --> ${instancia.getDouble('key-double')}');
+    print('key-string --> ${instancia.getString('key-string')}');
+    print('key-cidades --> ${instancia.getStringList('key-cidades')}');
+
+    print('------------------');
+    instancia.getKeys().forEach((key) {
+      print('$key - ${instancia.get(key)}');
+    });
+
+    print('Dados lidos com sucesso');
+  }
+
+  _gravandoPessoa() {
+    Pessoa pessoa = Pessoa(nome: 'Maria', idade: 20, peso: 50, jovem: true);
+    String pessoaEncode = convert.jsonEncode(pessoa.toJson());
+
+    SharedPreferences.getInstance().then((instancia) {
+      instancia.setString('key-pessoa', pessoaEncode);
+    });
+  }
+
+  _lendoPessoa() {
+    SharedPreferences.getInstance().then((instancia) {
+      Pessoa pessoa =
+          Pessoa.fromJson(convert.jsonDecode(instancia.get('key-pessoa')));
+      print('Pessoa foi decodificada.');
+      print(pessoa);
+    });
+  }
+
+  _gravandoListPessoa() {
     List<Pessoa> pessoas = [
       Pessoa(nome: 'Maria', idade: 20, peso: 50, jovem: true),
       Pessoa(nome: 'Carlos', idade: 22, peso: 60, jovem: true),
       Pessoa(nome: 'João', idade: 70, peso: 80, jovem: false),
     ];
 
-    //pessoas.forEach((pessoa) => print(pessoa));
-
-    //print('--------');
-
-    List<String> pessoasString =
+    List<String> pessoasEncode =
         pessoas.map((pessoa) => convert.jsonEncode(pessoa.toJson())).toList();
 
-    //pessoasString.forEach((element) => print(element));
-    SharedPreferences instancia = await SharedPreferences.getInstance();
-    instancia.setStringList('key-pessoas', pessoasString);
+    SharedPreferences.getInstance().then((instancia) {
+      instancia.setStringList('key-pessoas', pessoasEncode);
+    });
+
     print('Pessoas gravadas com sucesso');
   }
 
-  _lendoListaPessoas() async {
-    SharedPreferences instancia = await SharedPreferences.getInstance();
-    List<String> pessoasString = instancia.getStringList('key-pessoas');
-    pessoasString.forEach((element) => print(element));
-
-    print('-------------');
-
-    List<Pessoa> pessoas = pessoasString
-        .map((e) => Pessoa.fromJson(convert.jsonDecode(e)))
-        .toList();
-
-    pessoas.forEach((element) => print(element));
+  _lendoListPessoas() {
+    SharedPreferences.getInstance().then((instancia) {
+      List<String> pessoasString = instancia.getStringList('key-pessoas');
+      List<Pessoa> pessoas = pessoasString
+          .map((p) => Pessoa.fromJson(convert.jsonDecode(p)))
+          .toList();
+      print('Lista de Pessoas');
+      pessoas.forEach((p) => print(p));
+    }).catchError((e) {
+      print('Lista vazia.');
+      print(e);
+    });
   }
 
-  _lendoAsChavesDados() async {
-    SharedPreferences instancia = await SharedPreferences.getInstance();
-    instancia.getKeys().forEach((chave) => print('chave -> $chave'));
-    print('------------------');
-    print('key-bool --> ${instancia.getBool('key-bool')}');
-    print('key-int --> ${instancia.getInt('key-int')}');
-    print('key-double --> ${instancia.getDouble('key-double')}');
-    print('key-string --> ${instancia.getString('key-string')}');
-    print('------------------');
-    List<String> listString = instancia.get('key-pessoas');
-    listString.add('{"nome":"kaka","idade":70,"peso":80.0,"jovem":false}');
-    instancia
-        .getKeys()
-        .forEach((chave) => print('$chave - ${instancia.get(chave)}'));
-    print('Dados lidos com sucesso');
+  _limparDados() {
+    SharedPreferences.getInstance().then((instancia) {
+      instancia.clear();
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Exemplo SharedPreferences')),
-      body: Center(
-        child: RaisedButton(
-          child: Text('Ler os dados'),
-          onPressed: () {
-            _lendoAsChavesDados();
-            _lendoListaPessoas();
-          },
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            RaisedButton(
+              child: Text('Granvado Dados'),
+              onPressed: () {
+                _gravandoDados();
+                _gravandoPessoa();
+                _gravandoListPessoa();
+              },
+            ),
+            RaisedButton(
+              child: Text('Lendo Dados'),
+              onPressed: () {
+                //_lendoDados();
+                //_lendoPessoa();
+                _lendoListPessoas();
+              },
+            ),
+            RaisedButton(
+              child: Text('Limpar Dados'),
+              onPressed: () {
+                _limparDados();
+              },
+            )
+          ],
         ),
       ),
     );

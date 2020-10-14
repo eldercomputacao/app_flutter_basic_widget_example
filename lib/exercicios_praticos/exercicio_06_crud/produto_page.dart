@@ -14,7 +14,7 @@ class ProdutoPage extends StatefulWidget {
 
 class _ProdutoPageState extends State<ProdutoPage> {
   String _titleApp = 'Novo Produto';
-  final _key = GlobalKey<FormState>();
+  final _keyForm = GlobalKey<FormState>();
 
   final _marca = TextEditingController();
   final _nome = TextEditingController();
@@ -41,7 +41,7 @@ class _ProdutoPageState extends State<ProdutoPage> {
         centerTitle: true,
       ),
       body: Form(
-        key: _key,
+        key: _keyForm,
         child: ListView(
           padding: EdgeInsets.all(10),
           children: [
@@ -121,8 +121,8 @@ class _ProdutoPageState extends State<ProdutoPage> {
               child: RaisedButton(
                 child: Text("Confirme"),
                 onPressed: () {
-                  if (_key.currentState.validate()) {
-                    _key.currentState.save();
+                  if (_keyForm.currentState.validate()) {
+                    _keyForm.currentState.save();
                     Navigator.pop(
                       context,
                       Produto(
