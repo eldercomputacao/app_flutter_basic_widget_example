@@ -45,7 +45,6 @@ class _EnderecosListViewPageState extends State<EnderecosListViewPage> {
               'Logradouro: ${widget.enderecos[i].logradouro}',
               style: TextStyle(
                 fontSize: 20,
-                //fontWeight: FontWeight.bold,
               ),
             ),
           );

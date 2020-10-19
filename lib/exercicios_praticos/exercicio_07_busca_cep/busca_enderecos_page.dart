@@ -2,6 +2,7 @@ import 'package:app_flutter_basic_widget_example/exercicios_praticos/exercicio_0
 import 'package:app_flutter_basic_widget_example/exercicios_praticos/exercicio_07_busca_cep/endereco_api.dart';
 import 'package:app_flutter_basic_widget_example/exercicios_praticos/exercicio_07_busca_cep/enderecos_listview_page.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class BuscaEnderecosPage extends StatefulWidget {
   @override
@@ -9,13 +10,34 @@ class BuscaEnderecosPage extends StatefulWidget {
 }
 
 class _BuscaEnderecosPageState extends State<BuscaEnderecosPage> {
+  // Chaves do scaffold e do form
   final _keyScaffold = GlobalKey<ScaffoldState>();
   final _keyForm = GlobalKey<FormState>();
   bool _ativaCircular = false;
-  // Dados da busca
+  // Atributos para os dados da busca
   String _estado = 'PB';
   final _cidade = TextEditingController();
   final _logradouro = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _lendoDadosSharedPreferences();
+  }
+
+  _lendoDadosSharedPreferences() async {
+    SharedPreferences instancia = await SharedPreferences.getInstance();
+    _estado = instancia.getString('key-estado') ?? 'PB';
+    _cidade.text = instancia.getString('key-cidade') ?? '';
+    _logradouro.text = instancia.getString('key-logradouro') ?? '';
+  }
+
+  _gravandoDadosSharedPreferences() async {
+    SharedPreferences instancia = await SharedPreferences.getInstance();
+    instancia.setString('key-estado', _estado);
+    instancia.setString('key-cidade', _cidade.text);
+    instancia.setString('key-logradouro', _logradouro.text);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -89,11 +111,6 @@ class _BuscaEnderecosPageState extends State<BuscaEnderecosPage> {
               height: 50,
               child: RaisedButton.icon(
                 icon: _buildContainerCircularProgress(),
-                // icon: Icon(
-                //   Icons.search,
-                //   size: 35,
-                // ),
-                //color: ,
                 label: Text(
                   'Buscar',
                   style: TextStyle(
@@ -113,16 +130,16 @@ class _BuscaEnderecosPageState extends State<BuscaEnderecosPage> {
                       _logradouro.text,
                     );
 
-                    //await Future.delayed(Duration(seconds: 2));
+                    // await Future.delayed(Duration(seconds: 10));
 
                     setState(() {
                       _ativaCircular = false;
                     });
 
                     if (enderecos.length != 0) {
-                      // enderecos.forEach((element) {
-                      //   print(element.cep);
-                      // });
+                      // Gravando dados
+                      _gravandoDadosSharedPreferences();
+                      // Levando os dados para a proxíma tela.
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -155,16 +172,10 @@ class _BuscaEnderecosPageState extends State<BuscaEnderecosPage> {
             color: Colors.blue,
             size: 35,
           )
-        : Container(
+        : SizedBox(
             height: 20,
             width: 20,
-            child: SizedBox(
-              height: 20,
-              width: 20,
-              child: CircularProgressIndicator(
-                  //backgroundColor: Colors.red,
-                  ),
-            ),
+            child: CircularProgressIndicator(),
           );
   }
 
@@ -191,7 +202,7 @@ class _BuscaEnderecosPageState extends State<BuscaEnderecosPage> {
           ],
         ),
         backgroundColor: Colors.red,
-        duration: Duration(seconds: 3),
+        duration: Duration(seconds: 2),
       ),
     );
   }

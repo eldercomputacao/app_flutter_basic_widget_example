@@ -15,7 +15,7 @@ class EnderecoApi {
         _enderecos = maps.map((e) => Endereco.fromJson(e)).toList();
       } else {
         throw Exception(
-            'Erro ao ler dos dados -> STATUS CODE: ${response.statusCode}');
+            'Erro ao ler os dados -> STATUS CODE: ${response.statusCode}');
       }
     } catch (e) {
       print(e);
