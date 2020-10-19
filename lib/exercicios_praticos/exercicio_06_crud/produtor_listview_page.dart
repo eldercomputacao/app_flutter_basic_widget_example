@@ -105,7 +105,7 @@ class _ProdutoListViewPageState extends State<ProdutoListViewPage> {
           ],
         ),
         backgroundColor: Icons.delete != icon ? Colors.green : Colors.red,
-        duration: Duration(seconds: 10),
+        duration: Duration(seconds: 2),
       ),
     );
   }
