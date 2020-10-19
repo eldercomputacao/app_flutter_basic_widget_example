@@ -45,6 +45,7 @@ class _ExemploSharedPreferencesState extends State<ExemploSharedPreferences> {
 
     SharedPreferences.getInstance().then((instancia) {
       instancia.setString('key-pessoa', pessoaEncode);
+      print('Pessoa foi codificada e gravada.');
     });
   }
 
@@ -71,7 +72,7 @@ class _ExemploSharedPreferencesState extends State<ExemploSharedPreferences> {
       instancia.setStringList('key-pessoas', pessoasEncode);
     });
 
-    print('Pessoas gravadas com sucesso');
+    print('Pessoas codificadas e gravadas com sucesso');
   }
 
   _lendoListPessoas() {
@@ -80,17 +81,18 @@ class _ExemploSharedPreferencesState extends State<ExemploSharedPreferences> {
       List<Pessoa> pessoas = pessoasString
           .map((p) => Pessoa.fromJson(convert.jsonDecode(p)))
           .toList();
-      print('Lista de Pessoas');
+      print('Lista decodificada com sucesso.');
       pessoas.forEach((p) => print(p));
     }).catchError((e) {
       print('Lista vazia.');
-      print(e);
+      //print(e);
     });
   }
 
   _limparDados() {
     SharedPreferences.getInstance().then((instancia) {
       instancia.clear();
+      print('Preferences foi limpa com sucesso.');
     });
   }
 
@@ -106,8 +108,8 @@ class _ExemploSharedPreferencesState extends State<ExemploSharedPreferences> {
             RaisedButton(
               child: Text('Granvado Dados'),
               onPressed: () {
-                _gravandoDados();
-                _gravandoPessoa();
+                //_gravandoDados();
+                //_gravandoPessoa();
                 _gravandoListPessoa();
               },
             ),

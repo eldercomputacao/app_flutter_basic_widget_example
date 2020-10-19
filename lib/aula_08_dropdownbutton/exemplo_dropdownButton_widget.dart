@@ -90,12 +90,10 @@ class _ExemploDropdownButtonWidgetState
             //dropdownColor: Colors.red,
             isExpanded: true,
             items: _cidades
-                .map(
-                  (e) => DropdownMenuItem(
-                    child: Text(e),
-                    value: e,
-                  ),
-                )
+                .map((e) => DropdownMenuItem(
+                      child: Text(e),
+                      value: e,
+                    ))
                 .toList(),
             onChanged: (String value) {
               print(value);
