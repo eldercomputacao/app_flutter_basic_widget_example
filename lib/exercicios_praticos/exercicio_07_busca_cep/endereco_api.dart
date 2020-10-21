@@ -22,4 +22,19 @@ class EnderecoApi {
     }
     return _enderecos;
   }
+
+  static Future<Endereco> getEndereco(String cep) async {
+    final url = 'https://viacep.com.br/ws/$cep/json/';
+    try {
+      http.Response response = await http.get(url);
+      if (response.statusCode == 200) {
+        return Endereco.fromJson(convert.jsonDecode(response.body));
+      } else {
+        throw Exception('ERRO - STATUS CODE: ${response.statusCode}');
+      }
+    } catch (e) {
+      print(e);
+    }
+    return null;
+  }
 }
