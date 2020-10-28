@@ -22,22 +22,22 @@ class ItemListViewInkWellWidget extends StatelessWidget {
       onLongPress: onLongPress,
       splashColor: Colors.blue,
       child: Container(
+        margin: EdgeInsets.all(8),
+        padding: EdgeInsets.all(4),
         color: Colors.red[200],
-        padding: EdgeInsets.all(2),
-        margin: EdgeInsets.all(10),
         child: Stack(
           children: [
             Image.asset(
               animal.url,
-              fit: BoxFit.cover,
               width: MediaQuery.of(context).size.width,
               height: 250,
+              fit: BoxFit.cover,
             ),
             Positioned(
-              top: 100,
+              top: 50,
               left: 10,
               child: Container(
-                padding: EdgeInsets.fromLTRB(5, 3, 5, 3),
+                padding: EdgeInsets.all(5),
                 color: Colors.black87,
                 child: Text(
                   animal.nome,

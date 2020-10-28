@@ -68,7 +68,7 @@ class _ExemploImagePickerCameraGalleryWidgetState
       children: _imagesFile
           .map(
             (img) => Container(
-              padding: EdgeInsets.all(5),
+              padding: EdgeInsets.all(2),
               color: Colors.red[200],
               child: Image.file(
                 img,

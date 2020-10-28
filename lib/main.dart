@@ -1,22 +1,12 @@
-import 'package:app_flutter_basic_widget_example/aula_08_dropdownbutton/exemplo_dropdownButton_widget.dart';
-import 'package:app_flutter_basic_widget_example/aula_13_shared_preference/exemplo_shared_preferences.dart';
-import 'package:app_flutter_basic_widget_example/exercicios_praticos/exercicio_06_crud/produtor_listview_page.dart';
-import 'package:app_flutter_basic_widget_example/exercicios_praticos/exercicio_07_busca_cep/busca_enderecos_page.dart';
-import 'package:app_flutter_basic_widget_example/exercicios_praticos/exercicio_07_busca_cep/form_endereco_page.dart';
+import 'package:app_flutter_basic_widget_example/aula_10_image/exemplo_image_widget.dart';
+import 'package:app_flutter_basic_widget_example/aula_10_image/exemplo_imagepicker_camera_gallery.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(
-    MaterialApp(
-      //home: ExemploListViewProdutos(),
-      //home: ExemploTextFormFieldWidget(),
-      //home: ProdutoListViewPage(),
-      //home: BuscaEnderecosPage(),
-      //home: ExemploSharedPreferences(),
-      //home: ExemploDropdownButtonWidget(),
-      home: FormEnderecoPage(),
-    ),
-  );
+  runApp(MaterialApp(
+    //home: ExemploImageWidget(),
+    home: ExemploImagePickerCameraGalleryWidget(),
+  ));
 }
 
 // initialRoute: "/rotas_nomeadas/home",
@@ -29,3 +19,9 @@ void main() {
 //   "/rotas_nomeadas/page_c": (BuildContext context) => PageC(),
 //   "/rotas_nomeadas/page_d": (BuildContext context) => PageD(),
 // },
+// home: BlocProvider(
+//   blocs: [
+//     Bloc((i) => IncrementBloc()),
+//   ],
+//   child: IntrementWidget(),
+// ),
