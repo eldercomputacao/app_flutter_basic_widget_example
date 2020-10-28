@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:flutter/cupertino.dart';
+//import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -41,22 +41,44 @@ class _ExemploImagePickerCameraGalleryWidgetState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Exemplo ImagePicker'),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.camera_alt),
-            onPressed: () => _getImageCamera(),
-          ),
-          IconButton(
-            icon: Icon(Icons.photo),
-            onPressed: () => _getImageGallery(),
-          )
-        ],
-      ),
-      body: _buildGridView(),
-      //body: _buildCircularAvatarCameraGallery(context)
-      //body: _buildCenterFotoSimples(),
+        appBar: AppBar(
+          title: Text('Exemplo ImagePicker'),
+          actions: [
+            IconButton(
+              icon: Icon(Icons.camera_alt),
+              onPressed: () => _getImageCamera(),
+            ),
+            IconButton(
+              icon: Icon(Icons.photo),
+              onPressed: () => _getImageGallery(),
+            )
+          ],
+        ),
+        body: _buildCircularAvatarCameraGallery()
+        //body: _buildGridView(),
+        //body: _buildCenterFotoSimples(),
+        );
+  }
+
+  ListView _buildCircularAvatarCameraGallery() {
+    return ListView(
+      children: [
+        SizedBox(height: 20),
+        CircleAvatar(
+          radius: 100,
+          child: _imageFile == null
+              ? Text('sem foto')
+              : ClipRRect(
+                  borderRadius: BorderRadius.circular(100),
+                  child: Image.file(
+                    _imageFile,
+                    width: 200,
+                    height: 200,
+                    fit: BoxFit.fitWidth,
+                  ),
+                ),
+        ),
+      ],
     );
   }
 
@@ -66,44 +88,15 @@ class _ExemploImagePickerCameraGalleryWidgetState
       crossAxisSpacing: 4,
       mainAxisSpacing: 4,
       children: _imagesFile
-          .map(
-            (img) => Container(
-              padding: EdgeInsets.all(2),
-              color: Colors.red[200],
-              child: Image.file(
-                img,
-                fit: BoxFit.fill,
-              ),
-            ),
-          )
+          .map((img) => Container(
+                padding: EdgeInsets.all(2),
+                color: Colors.red[200],
+                child: Image.file(
+                  img,
+                  fit: BoxFit.fill,
+                ),
+              ))
           .toList(),
-    );
-  }
-
-  Container _buildCircularAvatarCameraGallery(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      child: Column(
-        children: [
-          Divider(color: Colors.transparent),
-          CircleAvatar(
-            radius: 100,
-            child: _imageFile == null
-                ? Container(
-                    child: Text('sem foto'),
-                  )
-                : ClipRRect(
-                    borderRadius: BorderRadius.circular(100),
-                    child: Image.file(
-                      _imageFile,
-                      width: 200,
-                      height: 200,
-                      fit: BoxFit.fitWidth,
-                    ),
-                  ),
-          ),
-        ],
-      ),
     );
   }
 
