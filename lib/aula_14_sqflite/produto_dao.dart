@@ -1,23 +1,20 @@
-import 'package:app_flutter_basic_widget_example/aula_14_sqflite/database_helper_estoque.dart';
+import 'package:app_flutter_basic_widget_example/aula_14_sqflite/database_helper.dart';
 import 'package:app_flutter_basic_widget_example/aula_14_sqflite/produto.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:sqflite/sqlite_api.dart';
 
 class ProdutoDAO {
-  Future<Database> get db => DatabaseHelperEstoque.instancia.db;
-
-  Future<int> inserir(Produto produto) async {
-    Database dbCliente = await db;
-    return await dbCliente.insert('produtos', produto.toJson());
+  Future<int> insertProduto(Produto produto) async {
+    Database database = await DatabaseHelper().getDatabase();
+    return database.insert("produtos", produto.toJson());
   }
 
-  Future<int> inserir2(Produto produto) async {
-    Database dbCliente = await db;
+  Future<int> rawInsertProduto(Produto produto) async {
+    Database database = await DatabaseHelper().getDatabase();
     String sql = '''
       INSERT INTO produtos (marca, nome, preco, quantidade) 
       VALUES (?, ?, ?, ?)
     ''';
-    return await dbCliente.rawInsert(sql, [
+    return database.rawInsert(sql, [
       produto.marca,
       produto.nome,
       produto.preco,
@@ -25,58 +22,79 @@ class ProdutoDAO {
     ]);
   }
 
-  Future<List<Produto>> listarTodos() async {
-    Database dbCliente = await db;
-    List<Map<String, dynamic>> maps = await dbCliente.query('produtos');
-    return maps.map((e) => Produto.fromJson(e)).toList();
+  Future<List<Produto>> queryListaProdutos() async {
+    Database database = await DatabaseHelper().getDatabase();
+    List<Map<String, dynamic>> list = await database.query("produtos");
+    return list.map((e) => Produto.fromJson(e)).toList();
   }
 
-  Future<List<Produto>> listarTodos2() async {
-    Database dbCliente = await db;
+  Future<List<Produto>> rawQueryListaProdutos() async {
+    Database database = await DatabaseHelper().getDatabase();
     String sql = 'SELECT * FROM produtos';
-    List<Map<String, dynamic>> maps = await dbCliente.rawQuery(sql);
-    return maps.map((e) => Produto.fromJson(e)).toList();
+    List<Map<String, dynamic>> list = await database.rawQuery(sql);
+    return list.map((e) => Produto.fromJson(e)).toList();
   }
 
-  Future<Produto> buscarProdutoId(int id) async {
-    Database dbCliente = await db;
-    List<Map<String, dynamic>> maps =
-        await dbCliente.query('produtos', where: 'id = ?', whereArgs: [id]);
+  Future<Produto> queryProdutoId(int id) async {
+    final database = await DatabaseHelper().getDatabase();
+    final list =
+        await database.query('produtos', where: 'id = ?', whereArgs: [id]);
 
-    if (maps.length > 0) {
-      return Produto.fromJson(maps.elementAt(0));
+    if (list.length > 0) {
+      return Produto.fromJson(list.elementAt(0));
     }
 
     return null;
   }
 
-  Future<Produto> buscarProdutoId2(int id) async {
-    Database dbCliente = await db;
-    String sql = 'SELECT * FROM produtos WHERE id = ?';
-    List<Map<String, dynamic>> maps = await dbCliente.rawQuery(sql, [id]);
+  Future<Produto> rawQueryProdutoId(int id) async {
+    final database = await DatabaseHelper().getDatabase();
+    final sql = 'SELECT * FROM produtos WHERE id = ?';
+    final list = await database.rawQuery(sql, [id]);
 
-    if (maps.length > 0) {
-      return Produto.fromJson(maps.elementAt(0));
+    if (list.length > 0) {
+      return Produto.fromJson(list.elementAt(0));
     }
 
     return null;
   }
 
-  Future<int> buscarQuantidade() async {
-    Database dbCliente = await db;
-    final resultSet = await dbCliente.rawQuery('SELECT COUNT(*) FROM produtos');
+  Future<bool> existeProduto(int id) async {
+    Produto produto = await queryProdutoId(id);
+    return (produto != null);
+  }
+
+  Future<int> quantidadeProdutos() async {
+    final database = await DatabaseHelper().getDatabase();
+    final resultSet = await database.rawQuery('SELECT COUNT(*) FROM produtos');
     print('runtimeType: ${resultSet.runtimeType}');
     return Sqflite.firstIntValue(resultSet);
   }
 
-  Future<bool> produtoExiste(int id) async {
-    Produto produto = await buscarProdutoId(id);
-    return (produto != null);
+  Future<int> deleteProduto(int id) async {
+    final database = await DatabaseHelper().getDatabase();
+    return await database.delete('produtos', where: 'id = ?', whereArgs: [id]);
   }
 
-  Future<int> atualizar(Produto produto) async {
-    Database dbCliente = await db;
-    return await dbCliente.update(
+  Future<int> rawDeleteProduto(int id) async {
+    final database = await DatabaseHelper().getDatabase();
+    String sql = 'DELETE FROM produtos WHERE id = ?';
+    return await database.rawDelete(sql, [id]);
+  }
+
+  Future<int> deleteAllProdutos() async {
+    final database = await DatabaseHelper().getDatabase();
+    return await database.delete('produtos');
+  }
+
+  Future<int> rawDeleteAllProdutos() async {
+    final database = await DatabaseHelper().getDatabase();
+    return await database.rawDelete('DELETE FROM produtos');
+  }
+
+  Future<int> updateProduto(Produto produto) async {
+    final database = await DatabaseHelper().getDatabase();
+    return await database.update(
       'produtos',
       produto.toJson(),
       where: 'id = ?',
@@ -84,40 +102,20 @@ class ProdutoDAO {
     );
   }
 
-  Future<int> atualizar2(Produto produto) async {
-    Database dbCliente = await db;
+  Future<int> rawUpdateProduto(Produto produto) async {
+    final database = await DatabaseHelper().getDatabase();
     String sql = '''UPDATE produtos 
            SET 
            marca = ?, 
            nome = ?, 
            preco = ?, 
            quantidade = ? WHERE id = ?''';
-    return await dbCliente.rawUpdate(sql, [
+    return await database.rawUpdate(sql, [
       produto.marca,
       produto.nome,
       produto.preco,
       produto.quantidade,
       produto.id,
     ]);
-  }
-
-  Future<int> delete(int id) async {
-    Database dbCliente = await db;
-    return await dbCliente.delete('produtos', where: 'id = ?', whereArgs: [id]);
-  }
-
-  Future<int> delete2(int id) async {
-    Database dbCliente = await db;
-    return await dbCliente.rawDelete('DELETE FROM produtos WHERE id = ?', [id]);
-  }
-
-  Future<int> deleteTodos() async {
-    Database dbCliente = await db;
-    return await dbCliente.delete('produtos');
-  }
-
-  Future<int> deleteTodos2() async {
-    Database dbCliente = await db;
-    return await dbCliente.rawDelete('DELETE FROM produtos');
   }
 }

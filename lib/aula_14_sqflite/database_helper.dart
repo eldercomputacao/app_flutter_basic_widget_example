@@ -28,6 +28,8 @@ class DatabaseHelper {
       onUpgrade: _onUpgrade,
       onDowngrade: _onDowngrade,
       onOpen: _onOpen,
+      readOnly: false,
+      singleInstance: true,
     );
   }
 
