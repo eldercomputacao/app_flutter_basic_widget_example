@@ -1,11 +1,9 @@
-import 'package:app_flutter_basic_widget_example/aula_10_image/exemplo_image_widget.dart';
-import 'package:app_flutter_basic_widget_example/aula_10_image/exemplo_imagepicker_camera_gallery.dart';
+import 'package:app_flutter_basic_widget_example/aula_14_sqflite/teste_database_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(MaterialApp(
-    //home: ExemploImageWidget(),
-    home: ExemploImagePickerCameraGalleryWidget(),
+    home: TesteDatabasePage(),
   ));
 }
 
