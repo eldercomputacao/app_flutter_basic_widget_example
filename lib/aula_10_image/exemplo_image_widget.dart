@@ -9,15 +9,15 @@ class ExemploImageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Imagens')),
-      body: _listViewItemPersonalizado2(),
-      //body: _listViewItemPersonalizado(),
+      //body: _listViewItemPersonalizado2(),
+      body: _itemListViewInkWell(),
       //body: _imageFundoTela(context),
       //body: _imageNetwork(context),
       //body: _imageAsset(context),
     );
   }
 
-  ListView _listViewItemPersonalizado() {
+  ListView _itemListViewInkWell() {
     List<Animal> animais = AnimalAPI.getAnimais();
     return ListView.builder(
       itemCount: animais.length,
@@ -25,14 +25,14 @@ class ExemploImageWidget extends StatelessWidget {
         return ItemListViewInkWellWidget(
           animal: animais[i],
           onTap: () => print('${animais[i].nome} - onTap'),
-          onDoubleTap: () => print('${animais[i].nome} - onDoubleTap'),
+          onDoubleTab: () => print('${animais[i].nome} - onDoubleTap'),
           onLongPress: () => print('${animais[i].nome} - onLongPress'),
         );
       },
     );
   }
 
-  ListView _listViewItemPersonalizado2() {
+  ListView _itemListViewGestureDetector() {
     List<Animal> animais = AnimalAPI.getAnimais();
     return ListView.builder(
       itemCount: animais.length,
@@ -54,7 +54,7 @@ class ExemploImageWidget extends StatelessWidget {
           "resource/image/plano-claro.png",
           fit: BoxFit.fill,
           width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
+          //height: MediaQuery.of(context).size.height,
         ),
         ListView(
           padding: EdgeInsets.all(10),
@@ -136,11 +136,11 @@ class ExemploImageWidget extends StatelessWidget {
         //fit: BoxFit.contain,
         //fit: BoxFit.cover,
         //fit: BoxFit.scaleDown,
-        //alignment: Alignment.topRight,
+        //alignment: Alignment.topLeft,
         //color: Colors.transparent,
-        //repeat: ImageRepeat.repeat,
-        // width: 70,
-        // height: 70,
+        //repeat: ImageRepeat.noRepeat
+        //width: 70,
+        //height: 70,
       ),
     );
   }

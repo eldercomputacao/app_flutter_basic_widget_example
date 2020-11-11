@@ -11,7 +11,6 @@ class AnimalAPI {
       Animal(nome: 'Boby 6', url: 'resource/image/gato2.jpeg', idade: 15),
       Animal(nome: 'Boby 7', url: 'resource/image/gato3.png', idade: 16),
     ];
-
     return animais;
   }
 }

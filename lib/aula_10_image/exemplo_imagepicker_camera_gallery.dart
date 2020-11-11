@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:typed_data';
 
 //import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -14,20 +15,28 @@ class _ExemploImagePickerCameraGalleryWidgetState
     extends State<ExemploImagePickerCameraGalleryWidget> {
   ImagePicker _imagePicker = ImagePicker();
   File _imageFile;
+  Uint8List _imageBytes;
   List<File> _imagesFile = [];
 
-  Future _getImageCamera() async {
+  Future<void> _getImageCamera() async {
     PickedFile file = await _imagePicker.getImage(
       source: ImageSource.camera,
       imageQuality: 50,
+      //preferredCameraDevice: CameraDevice.front,
     );
     setState(() {
       _imageFile = File(file.path);
       _imagesFile.add(_imageFile);
     });
+
+    file.readAsBytes().then((value) {
+      setState(() {
+        _imageBytes = value;
+      });
+    });
   }
 
-  Future _getImageGallery() async {
+  Future<void> _getImageGallery() async {
     PickedFile file = await _imagePicker.getImage(
       source: ImageSource.gallery,
       imageQuality: 50,
@@ -35,6 +44,12 @@ class _ExemploImagePickerCameraGalleryWidgetState
     setState(() {
       _imageFile = File(file.path);
       _imagesFile.add(_imageFile);
+    });
+
+    file.readAsBytes().then((value) {
+      setState(() {
+        _imageBytes = value;
+      });
     });
   }
 
@@ -54,13 +69,14 @@ class _ExemploImagePickerCameraGalleryWidgetState
             )
           ],
         ),
-        body: _buildCircularAvatarCameraGallery()
+        body: _buildListViewCircularAvatarCameraGallery()
         //body: _buildGridView(),
-        //body: _buildCenterFotoSimples(),
+        //body: _buildCenterFotoSimplesMemory(),
+        //body: _buildCenterFotoSimplesFile(),
         );
   }
 
-  ListView _buildCircularAvatarCameraGallery() {
+  ListView _buildListViewCircularAvatarCameraGallery() {
     return ListView(
       children: [
         SizedBox(height: 20),
@@ -100,7 +116,7 @@ class _ExemploImagePickerCameraGalleryWidgetState
     );
   }
 
-  Center _buildCenterFotoSimples() {
+  Center _buildCenterFotoSimplesFile() {
     return Center(
       child: Container(
         child: _imageFile == null
@@ -114,7 +130,27 @@ class _ExemploImagePickerCameraGalleryWidgetState
             : Image.file(
                 _imageFile,
                 height: 300,
-                fit: BoxFit.fill,
+                //fit: BoxFit.fill,
+              ),
+      ),
+    );
+  }
+
+  Center _buildCenterFotoSimplesMemory() {
+    return Center(
+      child: Container(
+        child: _imageBytes == null
+            ? Text(
+                'Sem foto',
+                style: TextStyle(
+                  fontSize: 25,
+                  color: Colors.red,
+                ),
+              )
+            : Image.memory(
+                _imageBytes,
+                height: 300,
+                //fit: BoxFit.fill,
               ),
       ),
     );
