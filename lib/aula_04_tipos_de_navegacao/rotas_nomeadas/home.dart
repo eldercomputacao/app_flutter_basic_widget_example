@@ -14,19 +14,19 @@ class Home extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('Menu'),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Page A'),
               onPressed: () {
                 Navigator.pushNamed(context, "page_a");
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Page B'),
               onPressed: () {
                 Navigator.pushNamed(context, "/rotas_nomeadas/page_b");
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Page C'),
               onPressed: () {
                 Navigator.pushNamed(context, "/rotas_nomeadas/page_c");

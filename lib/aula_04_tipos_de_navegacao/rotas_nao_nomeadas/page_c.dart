@@ -11,7 +11,7 @@ class PageC extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('Page C'),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Voltar e Retornar Valor'),
               onPressed: () {
                 Navigator.pop(context, " - Olá, mundo");

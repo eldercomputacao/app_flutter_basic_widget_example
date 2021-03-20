@@ -1,8 +1,9 @@
-import 'package:app_flutter_basic_widget_example/aula_04_tipos_de_navegacao/rota_nao_nomeada/page_a.dart';
-import 'package:app_flutter_basic_widget_example/aula_04_tipos_de_navegacao/rota_nao_nomeada/page_b.dart';
-import 'package:app_flutter_basic_widget_example/aula_04_tipos_de_navegacao/rota_nao_nomeada/page_c.dart';
-import 'package:app_flutter_basic_widget_example/aula_04_tipos_de_navegacao/rota_nao_nomeada/page_d.dart';
-import 'package:app_flutter_basic_widget_example/aula_04_tipos_de_navegacao/rota_nao_nomeada/pessoa.dart';
+import 'package:app_flutter_basic_widget_example/aula_04_tipos_de_navegacao/rotas_nao_nomeadas/page_a.dart';
+import 'package:app_flutter_basic_widget_example/aula_04_tipos_de_navegacao/rotas_nao_nomeadas/page_b.dart';
+import 'package:app_flutter_basic_widget_example/aula_04_tipos_de_navegacao/rotas_nao_nomeadas/page_c.dart';
+import 'package:app_flutter_basic_widget_example/aula_04_tipos_de_navegacao/rotas_nao_nomeadas/page_d.dart';
+import 'package:app_flutter_basic_widget_example/aula_04_tipos_de_navegacao/rotas_nao_nomeadas/pessoa.dart';
+
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -26,7 +27,7 @@ class _HomeState extends State<Home> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('Menu'),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Page A'),
               onPressed: () {
                 Navigator.push(
@@ -35,7 +36,7 @@ class _HomeState extends State<Home> {
                 );
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Page B'),
               onPressed: () {
                 //Pessoa(nome: 'Maria', email: 'maria@gmail.com');
@@ -51,13 +52,13 @@ class _HomeState extends State<Home> {
                 );
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Page C$_texto'),
               onPressed: () {
                 _irPageC(context);
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Page D'),
               onPressed: () {
                 Navigator.push(
@@ -80,7 +81,7 @@ class _HomeState extends State<Home> {
     String valor = await Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (contex) {
+        builder: (context) {
           return PageC();
         },
       ),

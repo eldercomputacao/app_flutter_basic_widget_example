@@ -43,7 +43,7 @@ class _PageDState extends State<PageD> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('Valor: $valor'),
-            RaisedButton(
+            ElevatedButton(
               child: Text('+ 1'),
               onPressed: () {
                 _incremente();

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
-class PageA extends StatelessWidget {
+class PageD extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    String nomePorParamentro = ModalRoute.of(context).settings.arguments;
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Page A'),
+        title: Text('Page D'),
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -13,11 +15,14 @@ class PageA extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Page A'),
-            RaisedButton(
+            Text('Page D'),
+            Text('Nome: $nomePorParamentro'),
+            ElevatedButton(
               child: Text('Voltar'),
-              onPressed: () {},
-            )
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
           ],
         ),
       ),
