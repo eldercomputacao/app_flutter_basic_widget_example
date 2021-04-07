@@ -2,7 +2,7 @@ import 'package:app_flutter_basic_widget_example/aula_06_listView/pessoa.dart';
 
 class PessoaApi {
   static List<Pessoa> getPessos() {
-    List<Pessoa> pessoas = List<Pessoa>();
+    List<Pessoa> pessoas = [];
     pessoas.add(Pessoa(
         nome: 'Silvo Santos', telefone: '(33)3333-3333', favorito: true));
     pessoas.add(Pessoa(
