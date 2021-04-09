@@ -1,23 +1,16 @@
 import 'package:flutter/material.dart';
 
-class ExemloSnackbar extends StatefulWidget {
-  @override
-  _ExemloSnackbarState createState() => _ExemloSnackbarState();
-}
-
-class _ExemloSnackbarState extends State<ExemloSnackbar> {
-  GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
-
+class ExemloSnackbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _key,
       appBar: AppBar(title: Text('Exemplo Snackbar')),
       body: Center(
-        child: RaisedButton(
+        child: ElevatedButton(
+          child: Text('OK'),
           onPressed: () {
-            _snackbar();
-            // Scaffold.of(context).showSnackBar(
+            _snackbar(context);
+            // ScaffoldMessenger.of(context).showSnackBar(
             //   SnackBar(
             //     content: Text('SnackBar'),
             //   ),
@@ -29,12 +22,12 @@ class _ExemloSnackbarState extends State<ExemloSnackbar> {
     );
   }
 
-  _snackbar() {
-    _key.currentState.showSnackBar(
+  _snackbar(BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Row(
           children: [
-            Icon(Icons.save),
+            Icon(Icons.save, color: Colors.white),
             SizedBox(width: 25),
             Text(
               'Savando...',
@@ -42,6 +35,8 @@ class _ExemloSnackbarState extends State<ExemloSnackbar> {
             ),
           ],
         ),
+        backgroundColor: Colors.green[700],
+        duration: Duration(seconds: 5),
         action: SnackBarAction(
           label: 'Botão',
           onPressed: () {
@@ -49,8 +44,6 @@ class _ExemloSnackbarState extends State<ExemloSnackbar> {
           },
           textColor: Colors.white,
         ),
-        duration: Duration(seconds: 5),
-        backgroundColor: Colors.green[700],
       ),
     );
   }
@@ -60,9 +53,10 @@ class MySnackBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: RaisedButton(
+      child: ElevatedButton(
+        child: Text('Button SnackBar'),
         onPressed: () {
-          Scaffold.of(context).showSnackBar(
+          ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text('SnackBar'),
             ),

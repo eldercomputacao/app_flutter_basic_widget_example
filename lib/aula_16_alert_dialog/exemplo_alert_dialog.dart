@@ -32,7 +32,7 @@ class _ExemploAlertDialogWidgetState extends State<ExemploAlertDialogWidget> {
           //mainAxisAlignment: MainAxisAlignment.center,
           //crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            RaisedButton(
+            ElevatedButton(
               child: Text('Exemplo 1 - AlertDialog'),
               onPressed: () {
                 _exemploAlertDialog(context);
@@ -65,12 +65,12 @@ class _ExemploAlertDialogWidgetState extends State<ExemploAlertDialogWidget> {
           title: Text('Título'),
           content: Text('Conteudo Conteudo Conteudo Conteudo'),
           actions: [
-            FlatButton(
+            TextButton(
               child: Text('Sair'),
               onPressed: () {
                 Navigator.pop(context);
               },
-            )
+            ),
           ],
         );
       },
@@ -80,29 +80,27 @@ class _ExemploAlertDialogWidgetState extends State<ExemploAlertDialogWidget> {
   _exemploAlertDialog2(BuildContext context, int i) {
     showDialog(
       context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: Text('Deletar'),
-          content: Text('Deseja deletar ${_cidades[i]} ?'),
-          actions: [
-            FlatButton(
-              child: Text('Confirmar'),
-              onPressed: () {
-                setState(() {
-                  _cidades.removeAt(i);
-                });
-                Navigator.pop(context);
-              },
-            ),
-            FlatButton(
-              child: Text('Cancelar'),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-          ],
-        );
-      },
+      builder: (context) => AlertDialog(
+        title: Text('Deletar'),
+        content: Text('Deseja deletar ${_cidades[i]} ?'),
+        actions: [
+          TextButton(
+            child: Text('Confirmar'),
+            onPressed: () {
+              setState(() {
+                _cidades.removeAt(i);
+              });
+              Navigator.pop(context);
+            },
+          ),
+          TextButton(
+            child: Text('Cancelar'),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ],
+      ),
     );
   }
 }

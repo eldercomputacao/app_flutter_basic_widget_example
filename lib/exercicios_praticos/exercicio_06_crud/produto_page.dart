@@ -118,7 +118,7 @@ class _ProdutoPageState extends State<ProdutoPage> {
             ),
             Container(
               height: 50,
-              child: RaisedButton(
+              child: ElevatedButton(
                 child: Text("Confirme"),
                 onPressed: () {
                   if (_keyForm.currentState.validate()) {

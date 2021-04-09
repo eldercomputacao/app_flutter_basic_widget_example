@@ -1,10 +1,14 @@
-import 'package:app_flutter_basic_widget_example/aula_06_listView/exemplos_listview_widget.dart';
 import 'package:flutter/material.dart';
+import 'aula_15_snackbar/exemplo_snackbar.dart';
+import 'aula_16_alert_dialog/exemplo_alert_dialog.dart';
+import 'exercicios_praticos/exercicio_06_crud/produtor_listview_page.dart';
 
 void main() {
   runApp(
     MaterialApp(
-      home: ExemplosListWidget(),
+      //home: ExemloSnackbar(),
+      //home: ExemploAlertDialogWidget(),
+      home: ProdutoListViewPage(),
     ),
   );
 }

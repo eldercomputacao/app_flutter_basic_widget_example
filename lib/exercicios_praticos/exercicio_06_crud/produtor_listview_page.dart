@@ -74,7 +74,7 @@ class _ProdutoListViewPageState extends State<ProdutoListViewPage> {
   }
 
   Widget _listView() {
-    return _produtos.length <= 0
+    return (_produtos.length <= 0)
         ? Container(
             child: Center(
               child: Text('Lista Vazia'),
@@ -95,11 +95,12 @@ class _ProdutoListViewPageState extends State<ProdutoListViewPage> {
   }
 
   _showSnackBar(IconData icon, String ms) {
-    _keyScaffold.currentState.showSnackBar(
+    //_keyScaffold.currentState.showSnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Row(
           children: [
-            Icon(icon),
+            Icon(icon, color: Colors.white),
             SizedBox(width: 10),
             Text(ms),
           ],
@@ -118,14 +119,14 @@ class _ProdutoListViewPageState extends State<ProdutoListViewPage> {
           title: Text('Editar'),
           content: Text('Deseja alterar o produto, ${_produtos[i].nome} ?'),
           actions: [
-            FlatButton(
+            TextButton(
               child: Text('Confirmar'),
               onPressed: () {
                 Navigator.pop(context);
                 _editandoProduto(i);
               },
             ),
-            FlatButton(
+            TextButton(
               child: Text('Cancelar'),
               onPressed: () {
                 Navigator.pop(context);
@@ -145,14 +146,14 @@ class _ProdutoListViewPageState extends State<ProdutoListViewPage> {
           title: Text('Deletar'),
           content: Text('Deseja deletar o produto, ${_produtos[i].nome} ?'),
           actions: [
-            FlatButton(
+            TextButton(
               child: Text('Confirmar'),
               onPressed: () {
                 Navigator.pop(context);
                 _deletandoProduto(i);
               },
             ),
-            FlatButton(
+            TextButton(
               child: Text('Cancelar'),
               onPressed: () {
                 Navigator.pop(context);
