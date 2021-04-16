@@ -37,6 +37,6 @@ class Carro {
 
   @override
   String toString() {
-    return " # Nome: $nome, \nDesc: $descricao, \nPreço: $preco, \nImage: $image, \nFones: $fones";
+    return " --> $nome, $descricao, $preco, $fones";
   }
 }

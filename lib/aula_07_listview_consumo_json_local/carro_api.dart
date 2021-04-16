@@ -4,12 +4,12 @@ import 'dart:convert';
 
 class CarroApi {
   static Future<List<Carro>> getCarrosJsonLocal() async {
-    List<Carro> carros = List<Carro>();
+    List<Carro> carros = [];
 
     String carrosJsonString =
         await rootBundle.loadString("resource/json/carros.json");
 
-    // print(carrosJsonString);
+    //print(carrosJsonString);
 
     List carrosJson = json.decode(carrosJsonString);
 
@@ -18,19 +18,19 @@ class CarroApi {
     //   carros.add(Carro.fromJson(json));
     // }
 
-    // print('tam: ${carros.length}');
-
-    // await Future.delayed(Duration(seconds: 5));
-
-    carros = carrosJson.map((json) => Carro.fromJson(json)).toList();
-
-    // print('tamanho: ${carros.length}');
-
+    // print('tamanho2: ${carros.length}');
     // for (Carro c in carros) {
     //   print(c);
     // }
 
-    // carros.forEach((Carro c) => print(c));
+    print('tamanho: ${carros.length}');
+    carros = carrosJson.map((json) => Carro.fromJson(json)).toList();
+
+    print('tamanho2: ${carros.length}');
+    carros.forEach((Carro c) => print(c));
+
+    // await Future.delayed(Duration(seconds: 5));
+    //carros.clear();
 
     return carros;
   }

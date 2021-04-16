@@ -7,7 +7,7 @@ class Categoria {
   Categoria.fromJson(Map<String, dynamic> json) {
     categoria = json['categoria'];
     if (json['telefones'] != null) {
-      telefones = new List<Telefones>();
+      telefones = <Telefones>[];
       json['telefones'].forEach((v) {
         telefones.add(new Telefones.fromJson(v));
       });

@@ -4,7 +4,7 @@ import 'dart:convert';
 
 class CategoriaTelefonesApi {
   static Future<List<Categoria>> getCategoriaTelefonesJsonLocal() async {
-    List<Categoria> categoriaTelefones = List<Categoria>();
+    List<Categoria> categoriaTelefones = [];
 
     String categoriaTelefonesJsonString =
         await rootBundle.loadString("resource/json/telefones.json");

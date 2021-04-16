@@ -72,7 +72,7 @@ class DetalheCarro extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text(
                 'Voltar',
                 style: TextStyle(

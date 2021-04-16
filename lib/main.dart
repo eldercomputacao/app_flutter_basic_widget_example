@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'aula_15_snackbar/exemplo_snackbar.dart';
-import 'aula_16_alert_dialog/exemplo_alert_dialog.dart';
-import 'exercicios_praticos/exercicio_06_crud/produtor_listview_page.dart';
+import 'aula_07_listview_consumo_json_local/lista_carro.dart';
+import 'exercicios_praticos/exercicio_05_telefones/categoria_telefones_page.dart';
 
 void main() {
   runApp(
     MaterialApp(
-      //home: ExemloSnackbar(),
-      //home: ExemploAlertDialogWidget(),
-      home: ProdutoListViewPage(),
+      //home: ListaCarroWidget(),
+      home: CategoriaTelefonesWidget(),
     ),
   );
 }

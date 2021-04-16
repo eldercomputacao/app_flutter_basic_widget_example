@@ -17,13 +17,17 @@ class _ListaCarroWidgetState extends State<ListaCarroWidget> {
         future: CarroApi.getCarrosJsonLocal(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.hasData) {
-            // 2
-            return _buildListViewCarro(snapshot.data);
+            List<Carro> carros = snapshot.data.cast<Carro>();
+
+            if (carros.length == 0) {
+              return Center(child: Text("Lista Vazia"));
+            }
+
+            return _buildListViewCarro(carros);
           } else if (snapshot.hasError) {
-            // 3
             return _buildErroDados();
           }
-          // 1
+
           return _buildProgressCircular();
         },
       ),
@@ -57,24 +61,24 @@ class _ListaCarroWidgetState extends State<ListaCarroWidget> {
     );
   }
 
-  ListView _buildListViewCarro(List<Carro> lista) {
+  ListView _buildListViewCarro(List<Carro> carros) {
     return ListView.builder(
-      itemCount: lista.length,
+      itemCount: carros.length,
       itemBuilder: (BuildContext context, int i) {
-        return _listTile(lista, i);
+        return _listTile(carros[i]);
       },
     );
   }
 
-  ListTile _listTile(List<Carro> lista, int i) {
+  ListTile _listTile(Carro carro) {
     return ListTile(
       leading: CircleAvatar(
-        backgroundImage: NetworkImage(lista[i].image),
+        backgroundImage: NetworkImage(carro.image),
       ),
-      title: Text(lista[i].nome),
-      subtitle: Text(lista[i].descricao),
+      title: Text(carro.nome),
+      subtitle: Text(carro.descricao),
       trailing: Text(
-        'R\$ ${lista[i].preco}',
+        'R\$ ${carro.preco}',
         style: TextStyle(
           fontStyle: FontStyle.italic,
         ),
@@ -83,7 +87,7 @@ class _ListaCarroWidgetState extends State<ListaCarroWidget> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => DetalheCarro(carro: lista[i]),
+            builder: (context) => DetalheCarro(carro: carro),
           ),
         );
       },
