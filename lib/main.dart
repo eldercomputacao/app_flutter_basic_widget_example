@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'aula_07_listview_consumo_json_local/lista_carro.dart';
+import 'aula_12_http_consumo_api/listview_posts_widget.dart';
 import 'exercicios_praticos/exercicio_05_telefones/categoria_telefones_page.dart';
 
 void main() {
   runApp(
     MaterialApp(
       //home: ListaCarroWidget(),
-      home: CategoriaTelefonesWidget(),
+      //home: CategoriaTelefonesWidget(),
+      home: ListViewPostWidget(),
     ),
   );
 }

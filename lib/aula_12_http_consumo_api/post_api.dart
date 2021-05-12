@@ -16,7 +16,7 @@ class PostApi {
       if (response.statusCode == 200) {
         List<dynamic> maps = convert.jsonDecode(response.body);
         posts = maps.map((e) => Post.fromJson(e)).toList();
-        // posts.forEach((e) => print(e));
+        posts.forEach((e) => print(e));
       } else {
         throw Exception(
             'Erro ao ler dos dados -> STATUS CODE: ${response.statusCode}');
@@ -40,7 +40,7 @@ class PostApi {
       if (response.statusCode == 200) {
         Map<String, dynamic> map = convert.jsonDecode(response.body);
         post = Post.fromJson(map);
-        // print(post);
+        print(post);
       } else {
         throw Exception(
             'Erro ao ler dos dados -> STATUS CODE: ${response.statusCode}');
@@ -64,7 +64,7 @@ class PostApi {
       if (response.statusCode == 200) {
         List<dynamic> maps = convert.jsonDecode(response.body);
         commentsPost = maps.map((e) => CommentPost.fromJson(e)).toList();
-        // commentsPost.forEach((e) => print(e));
+        commentsPost.forEach((e) => print(e));
       } else {
         throw Exception(
             'Erro ao ler dos dados -> STATUS CODE: ${response.statusCode}');
@@ -93,8 +93,8 @@ class PostApi {
       );
 
       if (response.statusCode == 201) {
-        // print('STATUS CODE : ${response.statusCode}');
-        // print('BODY : ${response.body}');
+        print('STATUS CODE : ${response.statusCode}');
+        print('BODY : ${response.body}');
         Map<String, dynamic> map = convert.jsonDecode(response.body);
         return Post.fromJson(map);
       } else {
@@ -182,8 +182,8 @@ class PostApi {
       );
 
       if (response.statusCode == 200) {
-        // print('STATUS CODE : ${response.statusCode}');
-        // print('BODY : ${response.body}');
+        print('STATUS CODE : ${response.statusCode}');
+        print('BODY : ${response.body}');
 
         return true;
       } else {

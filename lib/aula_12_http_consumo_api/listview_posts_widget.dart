@@ -26,22 +26,28 @@ class _ListViewPostWidgetState extends State<ListViewPostWidget> {
   }
 
   deletePost() async {
-    await PostApi.deletePost(-2).then((value) => print(value));
+    await PostApi.deletePost(1).then((value) => print(value));
   }
 
   putPost() async {
     Post post = Post(id: 1, userId: 10, title: 'title', body: 'body');
-    await PostApi.putPost(post);
+    await PostApi.putPost(post).then((value) => print(value));
   }
 
   patchPost() async {
     Post post = Post(id: 1, userId: 5, title: 'title', body: 'body');
-    await PostApi.patchPost(post);
+    await PostApi.patchPost(post).then((value) => print(value));
   }
 
   @override
   Widget build(BuildContext context) {
-    patchPost();
+    allPost();
+    //getPostId();
+    //allComments();
+    //savePost();
+    //deletePost();
+    //putPost();
+    //patchPost();
 
     return Scaffold(
       appBar: AppBar(),
